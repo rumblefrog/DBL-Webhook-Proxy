@@ -8,6 +8,7 @@ type Votes struct {
 	NextRun       uint64
 	Completed     bool
 	Endpoint      string
+	HMAC          bool
 	Authorization string
 	Payload       string
 	CreatedAt     time.Time
