@@ -1,0 +1,9 @@
+FROM mariadb:latest
+
+ADD DBL-Webhook-Proxy DBL-WebHook-Proxy
+
+ENV PORT 8080
+
+EXPOSE 8080
+
+ENTRYPOINT [ "./DBL-Webhook-Proxy" ]
