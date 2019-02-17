@@ -18,10 +18,19 @@ func (v *VoteHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	len := len(req.URL.Path)
 
 	if req.Method == "GET" && len > 4 {
+		authorization := req.Header.Get("Authorization")
+
+		if authorization == "" {
+			w.WriteHeader(http.StatusUnauthorized)
+			w.Write([]byte("Missing authorization header"))
+
+			return
+		}
+
 		endpoint, err := endpoint.ParsePath(req.URL.Path)
 
 		if err != nil {
-			w.WriteHeader(http.StatusBadGateway)
+			w.WriteHeader(http.StatusBadRequest)
 			w.Write([]byte("Error parsing endpoint"))
 		}
 
