@@ -7,6 +7,7 @@ type Votes struct {
 	Attempts      uint8
 	NextRun       uint64
 	Completed     bool
+	Endpoint      string
 	Authorization string
 	Payload       string
 	CreatedAt     time.Time
