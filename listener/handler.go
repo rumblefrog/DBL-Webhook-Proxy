@@ -17,6 +17,7 @@ func (v *VoteHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 
 	len := len(req.URL.Path)
 
+	// TODO: Switch to post
 	if req.Method == "GET" && len > 4 {
 		authorization := req.Header.Get("Authorization")
 
